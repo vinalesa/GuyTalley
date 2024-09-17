@@ -55,6 +55,9 @@ nav .dropdown-menu .nav-link{color:rgba(0,0,0,0.6)!important;} /* Maintain Downd
 .bloc-lg{
 	padding:100px 20px;
 }
+.bloc-sm{
+	padding:20px;
+}
 
 /* = Full Width Blocs 
 -------------------------------------------------------------- */
@@ -315,6 +318,9 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .container-div-margin-top{
 	margin-top:-37px;
 	padding-top:13px;
+}
+.navbar-nav li a{
+	font-size:16px;
 }
 
 /* = Colour
