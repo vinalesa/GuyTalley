@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------
-	Test Project Website
+	Guy Talley
 	About: A shiny new Blocs website.
 	Author: Angel Vinales
 	Version: 1.0
@@ -14,8 +14,12 @@ body{
     -moz-osx-font-smoothing: grayscale;
 }
 .page-container{overflow: hidden;} /* Prevents unwanted scroll space when scroll FX used. */
-a,button{transition: background .3s ease-in-out;outline: none!important;} /* Prevent ugly blue glow on chrome and safari */
+a,button{transition: background .3s ease-in-out;outline: none!important;} /* Prevent blue selection glow on Chrome and Safari */
 a:hover{text-decoration: none; cursor:pointer;}
+.scroll-fx-lock-init{position:fixed!important;top: 0;bottom: 0;left: :0;right: 0;z-index:99999;} /* ScrollFX Lock */
+.blocs-grid-container{display: grid!important;grid-template-columns: 1fr 1fr;grid-template-rows: auto auto;column-gap: 1.5rem;row-gap: 1.5rem;} /* CSS Grid */
+nav .dropdown-menu .nav-link{color:rgba(0,0,0,0.6)!important;} /* Maintain Downdown Menu Link Color in Navigation */
+[data-bs-theme="dark"] nav .dropdown-menu .nav-link{color:var(--bs-dropdown-link-color)!important;} /* Maintain Downdown Menu Link Color in Navigation in Darkmode */
 
 
 /* Preloader */
@@ -42,6 +46,7 @@ a:hover{text-decoration: none; cursor:pointer;}
 .bloc .container{
 	padding-left:0;
 	padding-right:0;
+	position:relative;
 }
 
 
@@ -49,43 +54,6 @@ a:hover{text-decoration: none; cursor:pointer;}
 
 .bloc-lg{
 	padding:100px 20px;
-}
-.bloc-md{
-	padding:50px 20px;
-}
-.bloc-sm{
-	padding:20px;
-}
-
-/* = Full Screen Blocs 
--------------------------------------------------------------- */
-
-.bloc-fill-screen{
-	min-height:100vh;
-	display: flex;
-	flex-direction: column;
-	padding-top:20px;
-	padding-bottom:20px;
-}
-.bloc-fill-screen > .container{
-	align-self: flex-middle;
-	flex-grow: 1;
-	display: flex;
-	flex-wrap: wrap;
-}
-.bloc-fill-screen > .container > .row{
-	flex-grow: 1;
-	align-self: center;
-	width:100%;
-}
-.bloc-fill-screen .fill-bloc-top-edge, .bloc-fill-screen .fill-bloc-bottom-edge{
-	flex-grow: 0;
-}
-.bloc-fill-screen .fill-bloc-top-edge{
-	align-self: flex-start;
-}
-.bloc-fill-screen .fill-bloc-bottom-edge{
-	align-self: flex-end;
 }
 
 /* = Full Width Blocs 
@@ -106,119 +74,6 @@ a:hover{text-decoration: none; cursor:pointer;}
 .full-width-bloc .carousel img{
 	width:100%;
 	height:auto;
-}
-
-
-/* Edge Dividers */
-
-.bloc-shape-divider{
-	position: absolute;
-	width:100%;
-	text-align:center;
-	left:0;
-	right:0;
-	z-index: 0;
-	display: flex;
-	pointer-events: none;
-}
-.svg-divider{
-	width:100%;
-	height:100px;
-	fill:#000000;
-}
-.bloc-divider-top{
-	top:-1px;
-	align-items: flex-start;
-}
-.bloc-divider-bottom{
-	bottom:-1px;
-	align-items: flex-end;
-}
-.bloc-divider-flip-x svg{
-	transform:scale(-1,1);
-}
-.bloc-divider-flip-y svg{
-	transform:scale(1,-1);
-}
-.bloc-divider-flip-x.bloc-divider-flip-y svg{
-	transform:scale(-1,-1);
-}
-
-
-/* Background Effects */
-
-.parallax__container {
-	clip: rect(0, auto, auto, 0);
-	height: 100%;
-	left: 0;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index:-1;
-}
-.parallax {
-	position: fixed;
-	top: 0;
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
-	-webkit-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-	width: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-
-/* Dark theme */
-
-.d-bloc{
-	color:rgba(255,255,255,.7);
-}
-.d-bloc button:hover{
-	color:rgba(255,255,255,.9);
-}
-.d-bloc .icon-round,.d-bloc .icon-square,.d-bloc .icon-rounded,.d-bloc .icon-semi-rounded-a,.d-bloc .icon-semi-rounded-b{
-	border-color:rgba(255,255,255,.9);
-}
-.d-bloc .divider-h span{
-	border-color:rgba(255,255,255,.2);
-}
-.d-bloc .a-btn,.d-bloc .navbar a, .d-bloc a .icon-sm, .d-bloc a .icon-md, .d-bloc a .icon-lg, .d-bloc a .icon-xl, .d-bloc h1 a, .d-bloc h2 a, .d-bloc h3 a, .d-bloc h4 a, .d-bloc h5 a, .d-bloc h6 a, .d-bloc p a{
-	color:rgba(255,255,255,.6);
-}
-.d-bloc .a-btn:hover,.d-bloc .navbar a:hover,.d-bloc a:hover .icon-sm, .d-bloc a:hover .icon-md, .d-bloc a:hover .icon-lg, .d-bloc a:hover .icon-xl, .d-bloc h1 a:hover, .d-bloc h2 a:hover, .d-bloc h3 a:hover, .d-bloc h4 a:hover, .d-bloc h5 a:hover, .d-bloc h6 a:hover, .d-bloc p a:hover{
-	color:rgba(255,255,255,1);
-}
-.d-bloc .navbar-toggle .icon-bar{
-	background:rgba(255,255,255,1);
-}
-.d-bloc .btn-wire,.d-bloc .btn-wire:hover{
-	color:rgba(255,255,255,1);
-	border-color:rgba(255,255,255,1);
-}
-.d-bloc .card{
-	color:rgba(0,0,0,.5);
-}
-.d-bloc .card button:hover{
-	color:rgba(0,0,0,.7);
-}
-.d-bloc .card icon{
-	border-color:rgba(0,0,0,.7);
-}
-.d-bloc .card .divider-h span{
-	border-color:rgba(0,0,0,.1);
-}
-.d-bloc .card .a-btn{
-	color:rgba(0,0,0,.6);
-}
-.d-bloc .card .a-btn:hover{
-	color:rgba(0,0,0,1);
-}
-.d-bloc .card .btn-wire, .d-bloc .card .btn-wire:hover{
-	color:rgba(0,0,0,.7);
-	border-color:rgba(0,0,0,.3);
 }
 
 
@@ -254,31 +109,66 @@ a:hover{text-decoration: none; cursor:pointer;}
 /* = NavBar
 -------------------------------------------------------------- */
 
-.hero .hero-nav{
-	padding-left:inherit;
-	padding-right:inherit;
+/* Navbar Icon */
+.svg-menu-icon{
+	fill: none;
+	stroke: rgba(0,0,0,0.5);
+	stroke-width: 2px;
+	fill-rule: evenodd;
 }
-/* Handle Multi Level Navigation */.navbar-light .navbar-nav .nav-link {
-	color: rgb(64, 64, 64);
+.navbar-dark .svg-menu-icon{
+	stroke: rgba(255,255,255,0.5);
 }
-.btco-menu li > a {
-	padding: 10px 15px;
-	color: #000;
+.menu-icon-thin-bars{
+	stroke-width: 1px;
 }
-.btco-menu .active a:focus,.btco-menu li a:focus ,.navbar > .show > a:focus{
-	background: transparent;
-	outline: 0;
+.menu-icon-thick-bars{
+	stroke-width: 5px;
 }
-.dropdown-menu .show > .dropdown-toggle::after{
-	transform: rotate(-90deg);
+.menu-icon-rounded-bars{
+	stroke-width: 3px;
+	stroke-linecap: round;
 }
-
-/* = Bric adjustment margins
--------------------------------------------------------------- */
-
-.mg-md{
-	margin-top:10px;
-	margin-bottom:20px;
+.menu-icon-filled{
+	fill: rgba(0,0,0,0.5);
+	stroke-width: 0px;
+}
+.navbar-dark .menu-icon-filled{
+	fill: rgba(255,255,255,0.5);
+}
+.navbar-toggler-icon{
+	background: none!important;
+	pointer-events: none;
+	width: 33px;
+	height: 33px;
+}
+/* Handle Multi Level Navigation */
+.dropdown-menu .dropdown-menu{
+	border:none}
+@media (min-width:576px){
+	
+.navbar-expand-sm .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px}.navbar-expand-sm .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}}@media (min-width:768px){
+	.navbar-expand-md .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px}.navbar-expand-md .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}}@media (min-width:992px){
+	.navbar-expand-lg .dropdown-menu .dropdown-menu{
+	border:1px solid rgba(0,0,0,.15);
+	position:absolute;
+	left:100%;
+	top:-7px}.navbar-expand-lg .dropdown-menu .submenu-left{
+	right:100%;
+	left:auto}
 }
 
 /* = Buttons
@@ -304,8 +194,8 @@ button{
 
 /* = Text & Icon Styles
 -------------------------------------------------------------- */
-.threeD-t{
-	text-shadow:0 1px 0 #ccc,0 2px 0 #c9c9c9,0 3px 0 #bbb,0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25),0 20px 20px rgba(0,0,0,.15);
+.pressed-t{
+	text-shadow:0 1px 0 #FFF;
 }
 
 
@@ -321,13 +211,42 @@ button{
 .card-rd .card-footer{
 	border-radius:0 0 29px 29px;
 }
-
-
-
-/* Scroll FX */
-.scroll-fx-in-range{
-	will-change: opacity;
+/* = Masonary
+-------------------------------------------------------------- */
+.card-columns .card {
+	margin-bottom: 0.75rem;
 }
+@media (min-width: 576px) {
+	.card-columns {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	column-count: 3;
+	-webkit-column-gap: 1.25rem;
+	-moz-column-gap: 1.25rem;
+	column-gap: 1.25rem;
+	orphans: 1;
+	widows: 1;
+}
+.card-columns .card {
+	display: inline-block;
+	width: 100%;
+}
+}
+/* = Classic Dividers
+-------------------------------------------------------------- */
+.divider-h{
+	min-height: 1px;
+	background-color:rgba(0,0,0,.2);
+	margin: 20px 0;
+}
+.divider-half{
+	width: 50%;
+}
+.dropdown-menu .divider-h{
+	margin:0;
+}
+
+
 
 
 /* ScrollToTop button */
@@ -365,48 +284,70 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 .container{
 	max-width:1140px;
 }
-.img-portfolio-head-style{
-	width:387px;
-}
-.p-style{
-	width:89.27%;
-}
 .h1-style{
-	font-family:"Josefin Sans";
+	font-size:71px;
+	width:100%;
 }
-.text-span-color{
-	color:#ffffff;
+.btn-style{
+	border-radius:0px 0px 0px 0px;
+	padding-top:0px;
+	padding-bottom:0px;
 }
-.bloc-divider-t-fill{
-	fill:#00AFD7;
+.bloc-padding-left{
+	padding-left:249px;
+	padding-right:341px;
+}
+.container-div-style{
+	width:4.39%;
+}
+.h6-style{
+	font-size:11px;
+}
+.icon-style{
+	opacity:1.0;
+}
+.p-padding-top{
+	padding-top:0px;
+	margin-top:16px;
+	padding-bottom:1px;
+	margin-bottom:-2px;
+}
+.container-div-margin-top{
+	margin-top:-37px;
+	padding-top:13px;
 }
 
 /* = Colour
 -------------------------------------------------------------- */
 
-/* Background colour styles */
-
-.bgc-white{
-	background-color:#FFFFFF;
-}
-.bgc-white-2{
-	background-color:#FFFFFF;
-}
-
-/* Text colour styles */
-
-.tc-white{
-	color:#FFFFFF!important;
-}
-.tc-white-2{
-	color:#FFFFFF!important;
+/* Swatch Variables */
+:root{
+	
+	--swatch-var-6684:#0077B5;
+	
+	--swatch-var-2419:#3B5998;
+	
+	--swatch-var-7796:#00ACEE;
+	
 }
 
-/* Bloc image backgrounds */
 
-.bg-Screen-20Shot-202021-03-05-20at-201-07-15-20PM{
-	background-image:url("img/Screen%20Shot%202021-03-05%20at%201.07.15%20PM.png");
+
+/* Icon colour styles */
+
+.icon-6684{
+	color:var(--swatch-var-6684)!important;
+	border-color:var(--swatch-var-6684)!important;
 }
+.icon-2419{
+	color:var(--swatch-var-2419)!important;
+	border-color:var(--swatch-var-2419)!important;
+}
+.icon-7796{
+	color:var(--swatch-var-7796)!important;
+	border-color:var(--swatch-var-7796)!important;
+}
+
 
 
 
@@ -488,20 +429,3 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	   height: 320px;
     }
 }
-@media (max-width: 767px){
-	.text-right{
-	}
-	.text-left{
-	}
-	.text-center{
-	}
-	
-}
-
-@media (max-width: 575px){
-	.footer-link{
-		text-align:center;
-	}
-	
-}
-
