@@ -502,7 +502,8 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 		flex-direction:row;
 		padding-right:100px;
 		padding-left:100px;
-		justify-content:space-around;
+		align-items:stretch;
+		justify-content:center;
 	}
 	.container-div-margin-top{
 		flex-wrap:wrap;
@@ -517,6 +518,11 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.wrap{
 		width:150px;
+		flex-direction:row;
+		justify-content:space-around;
+		flex-wrap:wrap;
+		align-content:space-around;
+		display:flex;
 	}
 	
 }
@@ -550,6 +556,11 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 		justify-content:space-around;
 	}
 	.wrap{
+		flex-direction:row;
+		display:flex;
+		flex-wrap:wrap;
+		align-content:space-around;
+		justify-content:space-around;
 	}
 	.boxwrapper{
 		display:flex;
