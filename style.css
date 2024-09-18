@@ -558,6 +558,13 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.wrap{
 	}
+	.boxwrapper{
+		display:flex;
+		flex-wrap:wrap;
+	}
+	.p-style{
+		font-size:15px;
+	}
 	
 }
 
