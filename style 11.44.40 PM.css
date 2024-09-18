@@ -567,6 +567,13 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	.p-style{
 		font-size:15px;
 		display:flex;
+		margin-bottom:-1px;
+	}
+	.p-margin-bottom{
+		margin-bottom:-1px;
+	}
+	.bloc-bloc-1-margin-bottom{
+		margin-bottom:-16px;
 	}
 	
 }
