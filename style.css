@@ -21,13 +21,6 @@ a:hover{text-decoration: none; cursor:pointer;}
 nav .dropdown-menu .nav-link{color:rgba(0,0,0,0.6)!important;} /* Maintain Downdown Menu Link Color in Navigation */
 [data-bs-theme="dark"] nav .dropdown-menu .nav-link{color:var(--bs-dropdown-link-color)!important;} /* Maintain Downdown Menu Link Color in Navigation in Darkmode */
 
-
-/* Preloader */
-
-.page-preloader{position: fixed;top: 0;bottom: 0;width: 100%;z-index:100000;background:#FFFFFF url("img/pageload-spinner.gif") no-repeat center center;animation-name: preloader-fade;animation-delay: 2s;animation-duration: 0.5s;animation-fill-mode: both;}
-.preloader-complete{animation-delay:0.1s;}
-@keyframes preloader-fade {0% {opacity: 1;visibility: visible;}100% {opacity: 0;visibility: hidden;}}
-
 /* = Blocs
 -------------------------------------------------------------- */
 
@@ -562,6 +555,9 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.boxwrapper{
 		display:flex;
+		flex-direction:row;
+		align-items:stretch;
+		justify-content:space-around;
 		flex-wrap:wrap;
 	}
 	.p-style{
@@ -574,6 +570,9 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.bloc-bloc-1-margin-bottom{
 		margin-bottom:-16px;
+	}
+	.p-padding-top{
+		font-size:13px;
 	}
 	
 }
