@@ -509,6 +509,7 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 		flex-direction:row;
 		padding-right:100px;
 		padding-left:100px;
+		justify-content:space-around;
 	}
 	.container-div-margin-top{
 		flex-wrap:wrap;
@@ -533,7 +534,7 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	}
 	.wrapper{
 		display:flex;
-		justify-content:space-around;
+		justify-content:space-between;
 		flex-wrap:nowrap;
 		left:0px;
 		z-index:0;
@@ -554,6 +555,8 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 		flex-direction:row;
 		align-content:space-around;
 		justify-content:space-around;
+	}
+	.wrap{
 	}
 	
 }
